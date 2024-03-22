@@ -1,4 +1,4 @@
-
+package pl.kkufel.creditcard;
 
 import org.junit.jupiter.api.Test;
 
