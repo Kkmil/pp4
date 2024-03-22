@@ -69,8 +69,8 @@ public class CreditCardTest {
     void denyWithdrawBelowCurrentBalance() {
         CreditCard card = thereIsExampleCreditCard();
         card.assignCreditLimit(BigDecimal.valueOf(1000));
-
         card.withdraw(BigDecimal.valueOf(900));
+
 
         assertThrows(
                 NotEnoughFoundsException.class,
