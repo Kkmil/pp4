@@ -78,7 +78,6 @@ public class CreditCardTest {
     }
 
     private static CreditCard thereIsExampleCreditCard() {
-        CreditCard card = new CreditCard("1234-3211");
-        return card;
+        return new CreditCard("1234-3211");
     }
 }
