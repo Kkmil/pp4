@@ -1,15 +1,23 @@
 package pl.kkufel.creditcard;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import pl.kumorek.ecommerce.catalog.ArrayListProductStorage;
+import pl.kumorek.ecommerce.catalog.ProductCatalog;
 
-import org.junit.jupiter.api.Test;
+//http://localhost:8080/
 
-public class Test01 {
+@SpringBootApplication
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Here we go!!!");
+        SpringApplication.run(App.class, args);
+    }
 
-    @Test
-    void myFirstTest()  {
-        var a = 2;
-        var b = 4;
-        var result = a + b;
-        assert 6 == result;
-
+    @Bean
+    ProductCatalog createMyProductCatalog() {
+        var catalog = new ProductCatalog(new ArrayListProductStorage());
+        catalog.addProduct("Lego set 8084", "niece one");
+        return catalog;
     }
 }
