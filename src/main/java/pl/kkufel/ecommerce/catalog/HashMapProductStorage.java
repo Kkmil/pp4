@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class HashMapProductStorage implements ProductStorage {
-    private HashMap<String, Product> productHashMap;
+
+    HashMap<String, Product> productHashMap;
 
     public HashMapProductStorage() {
         this.productHashMap = new HashMap<>();

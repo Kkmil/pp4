@@ -3,6 +3,7 @@ package pl.kkufel.ecommerce.catalog;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 public class ArrayListProductStorage implements ProductStorage {
     private ArrayList<Product> products;
 

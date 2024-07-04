@@ -1,35 +1,21 @@
 package pl.kkufel.ecommerce.catalog;
 
-import java.math.BigDecimal;
-import java.util.Collections;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
-import java.util.UUID;
 
-public class ProductCatalog {
+@RestController
+public class ProductCatalogController {
 
-    private final ProductStorage productStorage;
+    private final ProductCatalog productCatalog;
 
-    public ProductCatalog(ProductStorage productStorage) {
-        this.productStorage = productStorage;
-    }
-    public List<Product> allProducts() {
-        return productStorage.allProducts();
+    public ProductCatalogController(ProductCatalog productCatalog) {
+        this.productCatalog = productCatalog;
     }
 
-    public String addProduct(String productName, String productDescription) {
-        UUID id = UUID.randomUUID();
-        Product newProduct = new Product(id, productName, productDescription);
-        productStorage.add(newProduct);
-
-        return newProduct.getId();
-    }
-
-    public Product getProductBy(String id) {
-        return productStorage.getProductBy(id);
-    }
-
-    public void changePrice(String id, BigDecimal newPrice) {
-        Product loaded = productStorage.getProductBy(id);
-        loaded.changePrice(newPrice);
+    @GetMapping("/api/products")
+    List<Product> getAllProducts() {
+        return productCatalog.allProducts();
     }
 }
